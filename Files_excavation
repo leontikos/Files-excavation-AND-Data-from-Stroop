@@ -1,0 +1,13 @@
+import os
+import shutil
+
+PTH = r"C:\Wytykowska_badanie"
+os.chdir(PTH)
+print(os.getcwd())
+
+dst = 'C:\Wytyk_ALL'
+for root, dirs, files in os.walk(PTH):
+    for file in files:
+        if file.endswith(".xlsx"):
+            print(os.path.join(root, file) + ' - DONE')
+            shutil.copy2(os.path.join(root, file), dst)
